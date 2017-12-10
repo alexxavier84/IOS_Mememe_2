@@ -92,11 +92,41 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mememeCollectionView" destination="y4q-M0-FUF" id="3Mt-Gp-2dw"/>
+                        <segue destination="Spk-7k-kRC" kind="show" identifier="detailSegue" id="AfV-MC-BCn"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YL4-1a-WSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1136.8" y="-437.63118440779613"/>
+        </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="GrL-9b-msq">
+            <objects>
+                <viewController id="Spk-7k-kRC" customClass="MemeDetailViewController" customModule="MemeMe_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kV3-LS-BjG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wEs-Zs-LyN">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6wt-F8-h93" firstAttribute="trailing" secondItem="wEs-Zs-LyN" secondAttribute="trailing" id="3nQ-Y2-rqD"/>
+                            <constraint firstItem="wEs-Zs-LyN" firstAttribute="leading" secondItem="6wt-F8-h93" secondAttribute="leading" id="88z-Md-2dw"/>
+                            <constraint firstItem="wEs-Zs-LyN" firstAttribute="top" secondItem="6wt-F8-h93" secondAttribute="top" id="Ydj-Ei-zSV"/>
+                            <constraint firstItem="6wt-F8-h93" firstAttribute="bottom" secondItem="wEs-Zs-LyN" secondAttribute="bottom" id="q08-MD-JCd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6wt-F8-h93"/>
+                    </view>
+                    <connections>
+                        <outlet property="mememeImage" destination="wEs-Zs-LyN" id="9aK-Ee-ujD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5G7-Hx-gxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2234" y="-588"/>
         </scene>
         <!--Meme Editor View Controller-->
         <scene sceneID="22r-dz-MSg">
@@ -166,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AkC-eN-cTt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2242" y="-31"/>
+            <point key="canvasLocation" x="2233" y="154"/>
         </scene>
         <!--Table-->
         <scene sceneID="Z46-jJ-dYh">
@@ -227,6 +257,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mememeTableView" destination="6xn-HO-wX6" id="dc2-Tl-4L5"/>
+                        <segue destination="Spk-7k-kRC" kind="show" identifier="detailSegue" id="XBQ-GG-dAU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGl-UW-9GD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -236,5 +267,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="4To-xR-pD4"/>
+        <segue reference="AfV-MC-BCn"/>
     </inferredMetricsTieBreakers>
 </document>
