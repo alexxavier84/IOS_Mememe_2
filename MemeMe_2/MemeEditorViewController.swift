@@ -115,8 +115,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func shareMeme(_ sender: Any) {
-        //var memeImage = UIImage()
-        let memeImage = self.save()
+        let memeImage = self.generateMemedImage()
         let shareActivityController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
         self.present(shareActivityController, animated: true, completion: nil)
         
@@ -125,8 +124,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             if !completed {
                 return
             }
-            //memeImage = self.save()
-            //_ = self.navigationController?.popToRootViewController(animated: true)
+            self.save(image: memeImage)
+            
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -193,14 +192,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     //Save Meme
-    func save() -> UIImage {
-        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
+    func save(image: UIImage) {
+        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageView.image!, memedImage: image)
         
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
-        
-        return meme.memedImage
     }
     
     //Generate meme
