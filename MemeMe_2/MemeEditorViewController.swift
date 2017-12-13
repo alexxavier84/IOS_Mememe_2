@@ -29,6 +29,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     ///View delegates
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
         //Enable camera button only if camera is available in the device
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         //Subscribe to keyboard notification
@@ -117,7 +119,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func shareMeme(_ sender: Any) {
         let memeImage = self.generateMemedImage()
         let shareActivityController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
-        self.present(shareActivityController, animated: true, completion: nil)
+        present(shareActivityController, animated: true, completion: nil)
         
         shareActivityController.completionWithItemsHandler = {(activityType, completed, returnedItems, error) in
             
@@ -128,6 +130,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func cancelEditor(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -142,7 +148,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         textField.delegate = self as UITextFieldDelegate
         textField.textAlignment = .center
         textField.adjustsFontSizeToFitWidth = true
-        self.view.addSubview(textField)
+        view.addSubview(textField)
         return textField
     }
     
@@ -150,7 +156,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = imagePickerSource
-        self.present(pickerController, animated: true, completion: nil)
+        present(pickerController, animated: true, completion: nil)
     }
     
     func hideToolbar(_ hidden: Bool) {

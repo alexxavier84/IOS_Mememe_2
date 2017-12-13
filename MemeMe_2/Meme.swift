@@ -17,7 +17,4 @@ struct Meme {
     
 }
 
-extension Meme{
-    
-}
 
